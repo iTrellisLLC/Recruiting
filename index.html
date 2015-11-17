@@ -155,8 +155,6 @@ is of higher rank than Ted's.</p>
 "2C", "2H", "3H", "3C", "KH", then Black has a Straight Flush,
 6-high, and White has a TwoPair, 3-high, and Black has the
 winning hand.</p>
-
-
 </div>
 
 
@@ -210,7 +208,6 @@ that the incoming JSON (or XML) is always well-formed.</p>
 
 <p>Any errors should be communicated using traditional Web API
 (RESTful) error-reporting mechanisms.</p>
-
 </div>
 
 
@@ -404,178 +401,6 @@ platform, please check with us first, both because we want to verify
 it will be acceptable and because we want to know about it!</p>
 </div>
 
-<div ng-show="domain === 'PokerHands' && interface === 'WebAPI'">
-The input will consist of a JSON document like the following:
-<xmp>
-		{
-			"hands": [
-				{
-					"name": "Ted",
-					"hand": [ "2H", "3D", "5S", "9C", "KD" ]
-				},
-				{
-					"name": "Louis",
-					"hand": [ "2C", "3H", "4S", "8C", "AH" ]
-				}
-			]
-		}
-
-or
-
-		{
-			"hands": [
-				{
-					"name": "Black",
-					"hand": [ "2H", "4S", "4C", "2D", "4H" ]
-				},
-				{
-					"name": "White",
-					"hand": [ "2S", "8S", "AS", "QS", "3S" ]
-				}
-			]
-		}
-
-</xmp>
-or an XML document like the following:
-<xmp>
-		<hands>
-			<hand>
-				<name>Ted</name>
-				<card>2H</card>
-				<card>3D</card>
-				<card>5S</card>
-				<card>9C</card>
-				<card>KD</card>
-			</hand>
-			<hand>
-				<name>Louis</name>
-				<card>2C</card>
-				<card>3H</card>
-				<card>4S</card>
-				<card>8C</card>
-				<card>AH</card>
-			</hand>
-		</hands>
-
-or
-
-		<hands>
-			<hand>
-				<name>Black</name>
-				<card>2H</card>
-				<card>4S</card>
-				<card>4C</card>
-				<card>2D</card>
-				<card>4H</card>
-			</hand>
-			<hand>
-				<name>White</name>
-				<card>2S</card>
-				<card>8S</card>
-				<card>AS</card>
-				<card>QS</card>
-				<card>3S</card>
-			</hand>
-		</hands>
-</xmp>
-The result will be a single message indicating which player's hand is the victorious
-one, suitable for display. The output will look like a JSON document like the following:
-<xmp>
-		{
-			"result": "Louis wins"
-		}
-</xmp>
-in the first case, or
-<xmp>
-		{
-			"result": "Black wins"
-		}
-</xmp>
-in the second, or an XML like the following:
-<xmp>
-		<results>
-			<result>Louis wins</result>
-		</results>
-</xmp>
-or the second example:
-<xmp>
-		<results>
-			<result>Black wins</result>
-		</results>
-</xmp>
-There should be just one endpoint, "/poker".</div>
-
-<div ng-show="domain === 'TripCalc' && interface === 'WebAPI'">
-The input will consist of a JSON document like the following:
-<xmp>
-		{
-			"trip": [
-				{
-					"expenses": [ 10.00, 20.00, 30.00 ]
-				}
-			]
-		}
-
-or
-
-		{
-			"trip": [
-				{
-					"expenses": [ 15.00, 15.01, 3.00, 3.01 ]
-				}
-			]
-		}
-</xmp>
-or an XML document like the following:
-<xmp>
-		<expenses>
-			<trip>
-				<expense>10.00</expense>
-				<expense>20.00</expense>
-				<expense>30.00</expense>
-			</trip>
-		</expenses>
-
-or
-
-		<expenses>
-			<trip>
-				<expense>15.00</expense>
-				<expense>15.01</expense>
-				<expense>3.00</expense>
-				<expense>3.01</expense>
-			</trip>
-		</expenses>
-</xmp>
-The result will be an amount for each trip, the total amount of money,
-in dollars and cents, that must be exchanged between the students who
-paid the least and the most to equalize the students'
-costs. The output will look like a JSON document like the following:
-<xmp>
-		{
-			[ 10.00 ]
-		}
-</xmp>
-in the first case, or
-<xmp>
-		{
-			[ 11.99 ]
-		}
-</xmp>
-in the second, or an XML like the following:
-<xmp>
-		<results>
-			<result>10.00</result>
-		</results>
-</xmp>
-or the second example:
-<xmp>
-		<results>
-			<result>11.99</result>
-		</results>
-</xmp>
-There should be just one endpoint, "/tripExpenses".
-</div>
 
 <!-- 
   Summary
