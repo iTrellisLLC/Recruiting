@@ -39,6 +39,7 @@
     <option value=".NET">.NET</option>
     <option value="Ruby">Ruby</option>
     <option value="NodeJS">NodeJS</option>
+    <option value="ReactJS">ReactJS</option>
     <option value="iOS">iOS</option>
     <option value="Android">Android</option>
   </select>
@@ -362,6 +363,18 @@ to run your app correctly, however, they must be documented or (ideally)
 configured to run as part of a Gulp or Grunt file.</p>
 </div>
 
+<div ng-show="platform === 'ReactJS'">
+<h2>ReactJS</h2>
+<p></p>
+
+<p>You may use any npm packages that you find helpful, so long as 
+they are declared in the application's package.json file; you may
+safely assume that we will run "npm install" on the source code before
+running it. If there are any other particular instructions required
+to run your app correctly, however, they must be documented or (ideally)
+configured to run as part of a Gulp or Grunt file.</p>
+</div>
+
 
 
 <div ng-show="platform === 'Java'">
@@ -398,6 +411,15 @@ of a build process (presumably with NuGet).</p>
 reason you have found a different way to do Ruby on the Android
 platform, please check with us first, both because we want to verify
 it will be acceptable and because we want to know about it!</p>
+</div>
+
+<div ng-show="domain === 'ToDoList' && platform === 'WebAPI')">
+<p>We strongly suggest that you consider choosing a different platform
+  for your ToDo list; because there are so many frameworks that allow 
+  for the rapid creation of RESTful Web APIs without many lines of code, it 
+  can be difficult for us to evaluate a candidate who uses such a framework.</p>
+<p>If you are committed to coding a Web API, please consider choosing a
+  different domain.</p>
 </div>
 
 
