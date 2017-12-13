@@ -109,6 +109,9 @@
 			functionality is given below:
 
 			<li>As a user, I can add a TODO to the list.</li>
+			<li>As a user, I can add one or more sub-TODOs to a top-level TODO.  The application should only allow for a depth of 2 (parent/child relationship, no grandchildren). i.e., A child TODO should not be allowed to have children of its own.</li>
+			<li>If a sub-TODO exist and are all closed, then the parent TODO should close.</li>
+			<li>If a parent TODO closes, then all sub-TODOs should close.</li>
 			<li>As a user, I can see all the TODOs on the list in an overview.</li>
 			<li>As a user, I can drill into a TODO to see more information about the TODO.</li>
 			<li>As a user, I can delete a TODO.</li>
