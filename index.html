@@ -387,7 +387,7 @@
 		</p>
 		<p>
 			E.g. 2,
-			If a product is ordered in Jan 1st 2017 with a max ship days of 12 and only ships on weekdays, the return date should be 12 weekdays after Jan 1st, 2017.
+			If a product is ordered in Jan 1st 2017 with a max ship days of 12 and only ships on weekdays, the return date should be 12 weekdays after Jan 1st, 2017 (Include Jan 1st in the count).
 		</p>
 		<p>
 			E.g. 3,
@@ -399,7 +399,7 @@
   "maxBusinessDaysToShip": 7
 }
 </code></pre>
-		<p>A user who is viewing the product on Monday Oct 2nd should see a date of Tues Oct 10th.</p>
+		<p>A user who is viewing the product on Monday Oct 2nd should see a date of Sun Oct 8th.</p>
 		<p>
 			UI
 			Display a list of products (Name, available inventory quantity) and their ship dates if ordered right now.
