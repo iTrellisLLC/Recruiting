@@ -1,6 +1,8 @@
 ﻿<html ng-app="recruiterApp">
 
 <head>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+	 crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
 	<script>
 		var app = angular.module('recruiterApp', []);
@@ -16,763 +18,904 @@
 
 	<style type="text/css">
 		pre {
-			padding: 16px;
+			padding: 4px;
 			overflow: auto;
 			font-size: 85%;
 			line-height: 1.45;
 			background-color: #f6f8fa;
-			border-radius: 3px;
 		}
 	</style>
 </head>
 
-<body ng-controller="Ctrl">
-
-	<form>
-		Domain:
-		<select ng-model="domain">
-			<option value="ToDoList">To-Do List</option>
-			<option value="PokerHands">Poker Hands</option>
-			<option value="TripCalc">Trip Calculator</option>
-			<option value="Dealership">Car Dealership</option>
-			<option value="Ecommerce">E-Commerce Shipping</option>
-			<option value="Navigation">Maps Navigation</option>
-			<!-- option value="AussieVoting">Australian Voting</option -->
-		</select>
-		Interface:
-		<select ng-model="interface">
-			<option value="WebAPI">Web API</option>
-			<option value="WebServerUI">Web UI (Server-generated)</option>
-			<option value="WebClientUI">Web UI (SPA)</option>
-			<option value="WebService">WS-* Web Service</option>
-			<option value="NativeUI">Native GUI</option>
-		</select>
-		Platform:
-		<select ng-model="platform">
-			<option value="JVM">Java</option>
-			<option value=".NET">.NET</option>
-			<option value="Ruby">Ruby</option>
-			<option value="NodeJS">NodeJS</option>
-			<option value="ReactJS">ReactJS</option>
-			<option value="iOS">iOS</option>
-			<option value="Android">Android</option>
-		</select>
-		Language:
-		<select ng-model="language">
-			<option value="Java">Java</option>
-			<option value="JavaScript">JavaScript</option>
-			<option value="C#">C#</option>
-			<option value="Ruby">Ruby</option>
-			<option value="ObjC">ObjC</option>
-			<option value="Swift">Swift</option>
-			<option value="Python">Python</option>
-		</select>
-	</form>
-
+<body class="container" ng-controller="Ctrl">
 	<!-- <xmp theme="cyborg" style="display:none;"> -->
+	<div class="col-md-12 mb-4">
+		<div class="card">
+			<h1 class="card-header">
+				Welcome!
+			</h1>
+			<div class="card-body">
+				<p class="card-text">
+					Our goal is not to extract free work out of you with this project; please spend no more than 10 hours on this project. We
+					believe that any developer claiming to be a "journeyman" developer can complete this in that time, but we also understand
+					that certain developers do some things faster than others.
+				</p>
+				<p class="card-text">
+					You are free to use whatever libraries, packages, open-source tools, or other developer productivity aids you find helpful.
+					If you use any, please let us know, because we're always looking for ways for us to improve our own productivity, too.
+				</p>
+				<p class="card-text">
+					If the problem that you choose includes data, please feel free to use a database or any other datastore that you prefer.
+					If sample data is provided, please use that in your solution.
+				</p>
+				<p class="card-text">
+					There are two components to each project: the domain, and the interface. Please make sure you address both components; while
+					it is not an immediate disqualification to address only one and not the other, it does give us pause.
+				</p>
+			</div>
+		</div>
+	</div>
 
-	<h1>Welcome!</h1>
-	<p>
-		Our goal is not to extract free work out of you with this project;
-		please spend no more than 10 hours on this project. We believe that
-		any developer claiming to be a "journeyman" developer can complete
-		this in that time, but we also understand that certain developers
-		do some things faster than others.
-	</p>
-	<p>
-		You are free to use whatever libraries, packages, open-source tools,
-		or other developer productivity aids you find helpful. If you use
-		any, please let us know, because we're always looking for ways for
-		us to improve our own productivity, too.
-	</p>
-	<p>
-		If the problem that you choose includes data, please feel free to use a database or any other datastore that you prefer.  If sample data is provided, please use that in your solution.
-	</p>
-	<p>
-		There are two components to each project: the domain, and the
-		interface. Please make sure you address both components; while it is
-		not an immediate disqualification to address only one and not the
-		other, it does give us pause.
-	</p>
+	
+	<div class="col-md-12 mb-4">
+			<div class="card">
+				<h2 class="card-header">
+					Select Project Variables
+				</h2>
+				<div class="card-body">
+					<form class="form">
+						<div class="form-row">
+							<div class="col-md-6">
+								<label for="domain">Domain:</label>
+								<select id="domain" class="form-control form-control-sm" ng-model="domain">
+									<option value="ToDoList">To-Do List</option>
+									<option value="PokerHands">Poker Hands</option>
+									<option value="TripCalc">Trip Calculator</option>
+									<option value="Dealership">Car Dealership</option>
+									<option value="Ecommerce">E-Commerce Shipping</option>
+									<option value="Navigation">Maps Navigation</option>
+									<!-- option value="AussieVoting">Australian Voting</option -->
+								</select>
+							</div>
+							<div class="col-md-6">
+								<label for="domain">Interface:</label>
+								<select id="interface" class="form-control form-control-sm" ng-model="interface">
+									<option value="WebAPI">Web API</option>
+									<option value="WebServerUI">Web UI (Server-generated)</option>
+									<option value="WebClientUI">Web UI (SPA)</option>
+									<option value="WebService">WS-* Web Service</option>
+									<option value="NativeUI">Native GUI</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col-md-6">
+								<label for="platform">Platform:</label>
+								<select id="platform" class="form-control form-control-sm" ng-model="platform" ng-change="language = null; ui = null;">
+									<option value="JVM">JVM</option>
+									<option value=".NET">.NET</option>
+									<option value="NodeJS">NodeJS</option>
+									<option value="iOS">iOS</option>
+									<option value="Android">Android</option>
+								</select>
+							</div>
+							<div class="col-md-6">
+								<label for="language">Backend:</label>
+								<select id="language" class="form-control form-control-sm" ng-model="language">
+									<option ng-if="platform === 'JVM' || platform === 'Android'" value="Java">Java</option>
+									<option ng-if="platform === 'NodeJS'" value="JavaScript">JavaScript</option>
+									<option ng-if="platform === '.NET'" value="C#">C#</option>
+									<option ng-if="platform === 'iOS'" value="ObjC">ObjC</option>
+									<option ng-if="platform === 'iOS'" value="Swift">Swift</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-row" ng-show="interface !== 'NativeUI' && platform !== 'iOS' && platform !== 'Android'">
+							<div class="col-md-6">
+								<label for="ui">Frontend:</label>
+								<select id="ui" class="form-control form-control-sm" ng-model="ui">
+									<option value="React">React</option>
+									<option value="Angular">Angular</option>
+									<option value="Vue">VueJS</option>
+								</select>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
 
 	<!--
 	Domains
 	-->
+	<div class="col-md-12 mt-4" ng-show="domain === 'ToDoList'">
+		<div class="card">
+			<h2 class="card-header">
+				TODO List
+			</h2>
+			<div class="card-body">
+				<p class="card-text">
+					The project goals are simple: We would like for you to create an application that provides the ubiquitous "TODO list" example
+					application that is all the rage right now. The basic functionality is given below:
+					<ul>
+						<li>As a user, I can add a TODO to the list.</li>
+						<li>As a user, I can add one or more sub-TODOs to a top-level TODO. The application should only allow for a depth of 2
+							(parent/child relationship, no grandchildren). i.e., A child TODO should not be allowed to have children of its own.</li>
+						<li>If a sub-TODO exist and are all closed, then the parent TODO should close.</li>
+						<li>If a parent TODO closes, then all sub-TODOs should close.</li>
+						<li>As a user, I can see all the TODOs on the list in an overview.</li>
+						<li>As a user, I can drill into a TODO to see more information about the TODO.</li>
+						<li>As a user, I can delete a TODO.</li>
+						<li>As a user, I can mark a TODO as completed.</li>
+						<li>As a user, when I see all the TODOs in the overview, if today's date is past the TODO's deadline, highlight it.</li>
+					</ul>
+					A TODO consists of a task (just a simple sentence or two is fine), a deadline date, a completed flag, and an optional "more
+					details" field that allows for more details to be given (again, a single large text area is fine for this).
+				</p class="card-text">
 
-
-	<div ng-show="domain === 'ToDoList'">
-		<h2>TODO List</h2>
-		<p>
-			The project goals are simple: We would like for you to
-			create an application that provides the ubiquitous "TODO list"
-			example application that is all the rage right now. The basic
-			functionality is given below:
-
-			<li>As a user, I can add a TODO to the list.</li>
-			<li>As a user, I can add one or more sub-TODOs to a top-level TODO.  The application should only allow for a depth of 2 (parent/child relationship, no grandchildren). i.e., A child TODO should not be allowed to have children of its own.</li>
-			<li>If a sub-TODO exist and are all closed, then the parent TODO should close.</li>
-			<li>If a parent TODO closes, then all sub-TODOs should close.</li>
-			<li>As a user, I can see all the TODOs on the list in an overview.</li>
-			<li>As a user, I can drill into a TODO to see more information about the TODO.</li>
-			<li>As a user, I can delete a TODO.</li>
-			<li>As a user, I can mark a TODO as completed.</li>
-			<li>As a user, when I see all the TODOs in the overview, if today's date is past the TODO's deadline, highlight it.</li>
-
-			A TODO consists of a task (just a simple sentence or two is fine),
-			a deadline date, a completed flag, and an optional "more details"
-			field that allows for more details to be given (again, a single
-			large text area is fine for this).
-		</p>
-
-		<p>The list of TODOs can be kept in memory.</p>
+				<p class="card-text">The list of TODOs can be kept in memory.</p>
+			</div>
+		</div>
 	</div>
 
+	<div class="col-md-12 mt-4" ng-show="domain === 'PokerHands'">
+		<div class="card">
+			<h2 class="card-header">
+				Poker Hands
+			</h2>
+			<div class="card-body">
+				<p class="card-text">
+					The project goals are simple: We would like a program that determines the winner of a round of poker.
+				</p>
 
-	<div ng-show="domain === 'PokerHands'">
-		<h2>Poker Hands</h2>
-		<p>
-			The project goals are simple: We would like a program that
-			determines the winner of a round of poker.
-		</p>
+				<p class="card-text">
+					For simplicity's sake, we will assume that there are two players, and that each player is simply a name (String) that can
+					be assumed to be guaranteed elsewhere to be unique. (You need not verfiy the names are unique, and if you want to use
+					the names as unique identifiers that is fine.)
+				</p>
 
-		<p>
-			For simplicity's sake, we will assume that there are two players, and
-			that each player is simply a name (String) that can be assumed to be
-			guaranteed elsewhere to be unique. (You need not verfiy the names are
-			unique, and if you want to use the names as unique identifiers that is
-			fine.)
-		</p>
+				<p class="card-text">
+					A poker deck contains 52 cards. Each card has a suit of either clubs, diamonds, hearts, or spades. Each card also has a value
+					of either 2 through 10, jack, queen, king, or ace. For scoring purposes card values are ordered as above, with 2 having
+					the lowest and ace the highest value. The suit has no impact on value.
+				</p>
 
-		<p>
-			A poker deck contains 52 cards. Each card has a suit of either
-			clubs, diamonds, hearts, or spades. Each card also has a value of either
-			2 through 10, jack, queen, king, or ace. For scoring purposes card values
-			are ordered as above, with 2 having the lowest and ace the highest value.
-			The suit has no impact on value.
-		</p>
+				<p class="card-text">
+					A poker hand belonging to a player (which need only be tracked as a name; names can be assumed to be unique) consists of
+					five cards dealt from the deck. Poker hands are ranked by the following partial order from lowest to highest:
 
-		<p>
-			A poker hand belonging to a player (which need only be tracked as a name;
-			names can be assumed to be unique) consists of five cards dealt from the
-			deck. Poker hands are ranked by the following partial order from lowest to highest:
+					<ol>
+						<li>High Card: Hands which do not fit any higher category are ranked by the value of their highest card. If the highest
+							cards have the same value, the hands are ranked by the next highest, and so on.</li>
+						<li>Pair: Two of the five cards in the hand have the same value. Hands which both contain a pair are ranked by the value
+							of the cards forming the pair. If these values are the same, the hands are ranked by the values of the cards not forming
+							the pair, in decreasing order.</li>
+						<li>Two Pairs: The hand contains two different pairs. Hands which both contain two pairs are ranked by the value of their
+							highest pair. Hands with the same highest pair are ranked by the value of their other pair. If these values are the
+							same the hands are ranked by the value of the remaining card.</li>
+						<li>Three of a Kind. Three of the cards in the hand have the same value. Hands which both contain three of a kind are ranked
+							by the value of the three cards.</li>
+						<li>Straight. Hand contains five cards with consecutive values. Hands which both contain a straight are ranked by their
+							highest card.</li>
+						<li>Flush. Hand contains five cards of the same suit. Hands which are both flushes are ranked using the rules for High
+							Card.
+						</li>
+						<li>Full House. Three cards of the same value, with the remaining two cards forming a pair. Ranked by the value of the
+							three cards.</li>
+						<li>Four of a Kind. Four cards with the same value. Ranked by the value of the four cards.</li>
+						<li>Straight Flush. Five cards of the same suit with consecutive values. Ranked by the highest card in the hand.</li>
+					</ol>
 
-			<ol>
-				<li>High Card: Hands which do not fit any higher category are ranked by the value of their highest card. If the highest cards have the same value, the hands are ranked by the next highest, and so on.</li>
-				<li>Pair: Two of the five cards in the hand have the same value. Hands which both contain a pair are ranked by the value of the cards forming the pair. If these values are the same, the hands are ranked by the values of the cards not forming the pair, in decreasing order.</li>
-				<li>Two Pairs: The hand contains two different pairs. Hands which both contain two pairs are ranked by the value of their highest pair. Hands with the same highest pair are ranked by the value of their other pair. If these values are the same the hands are ranked by the value of the remaining card.</li>
-				<li>Three of a Kind. Three of the cards in the hand have the same value. Hands which both contain three of a kind are ranked by the value of the three cards.</li>
-				<li>Straight. Hand contains five cards with consecutive values. Hands which both contain a straight are ranked by their highest card.</li>
-				<li>Flush. Hand contains five cards of the same suit. Hands which are both flushes are ranked using the rules for High Card.</li>
-				<li>Full House. Three cards of the same value, with the remaining two cards forming a pair. Ranked by the value of the three cards.</li>
-				<li>Four of a Kind. Four cards with the same value. Ranked by the value of the four cards.</li>
-				<li>Straight Flush. Five cards of the same suit with consecutive values. Ranked by the highest card in the hand.</li>
-			</ol>
+					The program needs to evaluate a pair of poker hands and to indicate which, if either, has a higher rank. You should include
+					the winner's name as part of the resulting output.
+				</p>
 
-			The program needs to evaluate a pair of poker hands and to indicate which,
-			if either, has a higher rank. You should include the winner's name as part
-			of the resulting output.
-		</p>
+				<p class="card-text">
+					For example, if the hand belonging to "Ted" contains "2H", "3D", "5S", "9C", "KD", and the hand belonging to "Louis" contains
+					"2C", "3H", "4S", "8C", "AH", then Ted has a HighCard, and Louis also has a HighCard, and Louis wins because his HighCard
+					is of higher rank than Ted's.
+				</p>
 
-		<p>
-			For example, if the hand belonging to "Ted" contains "2H", "3D", "5S", "9C", "KD",
-			and the hand belonging to "Louis" contains "2C", "3H", "4S", "8C", "AH", then
-			Ted has a HighCard, and Louis also has a HighCard, and Louis wins because his HighCard
-			is of higher rank than Ted's.
-		</p>
-
-		<p>
-			As another example, if the hand belonging to "Black" contains
-			"2H", "3H", "4H", "5H", "6H", and "White" contains the cards
-			"2C", "2H", "3H", "3C", "KH", then Black has a Straight Flush,
-			6-high, and White has a TwoPair, 3-high, and Black has the
-			winning hand.
-		</p>
-
+				<p class="card-text">
+					As another example, if the hand belonging to "Black" contains "2H", "3H", "4H", "5H", "6H", and "White" contains the cards
+					"2C", "2H", "3H", "3C", "KH", then Black has a Straight Flush, 6-high, and White has a TwoPair, 3-high, and Black has
+					the winning hand.
+				</p>
+			</div>
+		</div>
 	</div>
 
+	<div class="col-md-12 mt-4" ng-show="domain === 'TripCalc'">
+		<div class="card">
+			<h2 class="card-header">
+				Trip Calculator
+			</h2>
+			<div class="card-body">
+				<p class="card-text">
+					The project goals are simple: We require a program that calculates the expenses for a group of students who like to go on
+					road trips.
+				</p>
 
-	<div ng-show="domain === 'TripCalc'">
-		<h2>Trip Calculator</h2>
-		<p>
-			The project goals are simple: We require a program that calculates
-			the expenses for a group of students who like to go on road trips.
-		</p>
+				<p class="card-text">
+					The group agrees in advance to share expenses equally, but it is not practical to share every expense as it occurs. Thus
+					individuals in the group pay for particular things, such as meals, hotels, taxi rides, and plane tickets. After the
+					trip, each student's expenses are tallied and money is exchanged so that the net cost to each is the same, to within
+					one cent. In the past, this money exchange has been tedious and time consuming. Your job is to compute, from a list
+					of students and their personal expenses from the trip, the minimum amount of money that must change hands in order to
+					equalize (within one cent) all the students' costs.
+				</p>
 
-		<p>
-			The group agrees in advance to share expenses equally, but it is not
-			practical to share every expense as it occurs. Thus individuals in
-			the group pay for particular things, such as meals, hotels, taxi rides,
-			and plane tickets. After the trip, each student's expenses are tallied
-			and money is exchanged so that the net cost to each is the same, to
-			within one cent. In the past, this money exchange has been tedious and
-			time consuming. Your job is to compute, from a list of students and
-			their personal expenses from the trip, the minimum amount of money
-			that must change hands in order to equalize (within one cent) all
-			the students' costs.
-		</p>
+				<p class="card-text">
+					So, for example, Louis, Carter, and David took a trip together; Louis incurred expenses of $5.75, $35.00, and $12.79, Carter
+					paid out $12.00, $15.00, and $23.23, and David covered $10.00, $20.00, $38.41, and $45.00. Louis' total was $53.54,
+					Carter's was $50.23, and David shelled out $113.41. The total cost of the trip was thus $217.18, and thus equal shares
+					would be $72.39 1/3 cents. Therefore, Louis owes David $18.85, and Carter owes David $22.16.
+				</p>
 
-		<p>
-			So, for example, Louis, Carter, and David took a trip together;
-			Louis incurred expenses of $5.75, $35.00, and $12.79, Carter paid
-			out $12.00, $15.00, and $23.23, and David covered $10.00, $20.00,
-			$38.41, and $45.00. Louis' total was $53.54, Carter's was $50.23,
-			and David shelled out $113.41. The total cost of the trip was thus
-			$217.18, and thus equal shares would be $72.39 1/3 cents. Therefore,
-			Louis owes David $18.85, and Carter owes David $22.16.
-		</p>
-
-		<p>
-			The output should include each student's name, and how much each
-			student needs to pay out to any others. For simplicity's sake, it is
-			safe to assume three students, two of which pay much less than the
-			third; however, if you want to make it a general-purpose solver to
-			work with any number of students, please feel free.
-		</p>
+				<p class="card-text">
+					The output should include each student's name, and how much each student needs to pay out to any others. For simplicity's
+					sake, it is safe to assume three students, two of which pay much less than the third; however, if you want to make it
+					a general-purpose solver to work with any number of students, please feel free.
+				</p>
+			</div>
+		</div>
 	</div>
 
-
-	<div ng-show="domain === 'Dealership'">
-		<h2>Car Dealership</h2>
-		<p>A car dealership has a large inventory of cars and needs a tool to help their customers narrow down which cars they could be interested in. Each automobile has several properties that will be used for the search. The manager at the dealership wants to give their customers the option to select 1 or more options as search criteria and give them the option to say that they want any of those options or all of those options.</p>
-		<p>In other words, a customer should be able to say, "I want my car to have a sun roof, 4 wheel drive, and power windows". The customer should also be able to say "I want a car with navigation, sun roof, or low miles."</p>
-		<p>Create a tool with these filtering options that returns a list of automobiles fulfilling the customer’s request. The customer input form should include a way for customers to enter their criteria and whether they want all or some criteria to be matched.</p>
-		<p>The returned result-set should include the make, year, and which properties are fulfilled.</p>
-		<p>Car Options:</p>
-		<ul>
-			<li>Color (Red, White, Gray, Silver, Black)</li>
-			<li>Automatic transmission</li>
-			<li>sun roof</li>
-			<li>4 wheel drive</li>
-			<li>low miles</li>
-			<li>power windows</li>
-			<li>navigation</li>
-			<li>heated seats</li>
-		</ul>
-		<p>Optional Challenges</p>
-		<ul>
-			<li>Make mileage an input that sets a threshold.</li>
-		</ul>
-		<p>Sample Data Set:</p>
-		<pre>
-<code>[
-  {
-    "_id": "59d2698c2eaefb1268b69ee5",
-    "make": "Chevy",
-    "year": 2016,
-    "color": "Gray",
-    "price": 16106,
-    "hasSunroof": false,
-    "isFourWheelDrive": true,
-    "hasLowMiles": true,
-    "hasPowerWindows": false,
-    "hasNavigation": true,
-    "hasHeatedSeats": false
-  },
-  {
-    "_id": "59d2698c05889e0b23959106",
-    "make": "Toyota",
-    "year": 2012,
-    "color": "Silver",
-    "price": 18696,
-    "hasSunroof": true,
-    "isFourWheelDrive": true,
-    "hasLowMiles": false,
-    "hasPowerWindows": true,
-    "hasNavigation": false,
-    "hasHeatedSeats": true
-  },
-  {
-    "_id": "59d2698c6f1dc2cbec89c413",
-    "make": "Mercedes",
-    "year": 2016,
-    "color": "Black",
-    "price": 18390,
-    "hasSunroof": true,
-    "isFourWheelDrive": false,
-    "hasLowMiles": false,
-    "hasPowerWindows": true,
-    "hasNavigation": true,
-    "hasHeatedSeats": false
-  },
-  {
-    "_id": "59d2698c340f2728382c0a73",
-    "make": "Toyota",
-    "year": 2015,
-    "color": "White",
-    "price": 15895,
-    "hasSunroof": true,
-    "isFourWheelDrive": false,
-    "hasLowMiles": true,
-    "hasPowerWindows": true,
-    "hasNavigation": false,
-    "hasHeatedSeats": true
-  },
-  {
-    "_id": "59d2698cba9b82c2347cd13a",
-    "make": "Ford",
-    "year": 2014,
-    "color": "Gray",
-    "price": 19710,
-    "hasSunroof": false,
-    "isFourWheelDrive": true,
-    "hasLowMiles": false,
-    "hasPowerWindows": false,
-    "hasNavigation": true,
-    "hasHeatedSeats": true
-  },
-  {
-    "_id": "59d2698ce2e7eeeb4f109001",
-    "make": "Toyota",
-    "year": 2014,
-    "color": "Red",
-    "price": 19248,
-    "hasSunroof": true,
-    "isFourWheelDrive": false,
-    "hasLowMiles": true,
-    "hasPowerWindows": true,
-    "hasNavigation": true,
-    "hasHeatedSeats": true
-  },
-  {
-    "_id": "59d2698cd6a3b8f0dd994c9d",
-    "make": "Toyota",
-    "year": 2015,
-    "color": "Black",
-    "price": 13170,
-    "hasSunroof": true,
-    "isFourWheelDrive": false,
-    "hasLowMiles": true,
-    "hasPowerWindows": true,
-    "hasNavigation": false,
-    "hasHeatedSeats": false
-  },
-  {
-    "_id": "59d2698c86ab54cee8acdc7b",
-    "make": "Mercedes",
-    "year": 2013,
-    "color": "Gray",
-    "price": 15669,
-    "hasSunroof": false,
-    "isFourWheelDrive": false,
-    "hasLowMiles": true,
-    "hasPowerWindows": false,
-    "hasNavigation": false,
-    "hasHeatedSeats": false
-  },
-  {
-    "_id": "59d2698cda9e8d39476c678a",
-    "make": "Toyota",
-    "year": 2015,
-    "color": "White",
-    "price": 16629,
-    "hasSunroof": false,
-    "isFourWheelDrive": false,
-    "hasLowMiles": true,
-    "hasPowerWindows": false,
-    "hasNavigation": false,
-    "hasHeatedSeats": true
-  }
+	<div class="col-md-12 mt-4" ng-show="domain === 'Dealership'">
+		<div class="card">
+			<h2 class="card-header">
+				Car Dealership
+			</h2>
+			<div class="card-body">
+				<p class="card-text">A car dealership has a large inventory of cars and needs a tool to help their customers narrow down which cars they could
+					be interested in. Each automobile has several properties that will be used for the search. The manager at the dealership
+					wants to give their customers the option to select 1 or more options as search criteria and give them the option to
+					say that they want any of those options or all of those options.</p>
+				<p class="card-text">In other words, a customer should be able to say, "I want my car to have a sun roof, 4 wheel drive, and power windows".
+					The customer should also be able to say "I want a car with navigation, sun roof, or low miles."</p>
+				<p class="card-text">Create a tool with these filtering options that returns a list of automobiles fulfilling the customer’s request. The
+					customer input form should include a way for customers to enter their criteria and whether they want all or some criteria
+					to be matched.</p>
+				<p class="card-text">The returned result-set should include the make, year, and which properties are fulfilled.</p>
+				<p class="card-text">Car Options:</p>
+				<ul>
+					<li>Color (Red, White, Gray, Silver, Black)</li>
+					<li>Automatic transmission</li>
+					<li>sun roof</li>
+					<li>4 wheel drive</li>
+					<li>low miles</li>
+					<li>power windows</li>
+					<li>navigation</li>
+					<li>heated seats</li>
+				</ul>
+				<p class="card-text">Optional Challenges</p>
+				<ul>
+					<li>Make mileage an input that sets a threshold.</li>
+				</ul>
+				<p class="card-text">Sample Data Set:</p>
+				<pre>
+<code>
+[
+	{
+	"_id": "59d2698c2eaefb1268b69ee5",
+	"make": "Chevy",
+	"year": 2016,
+	"color": "Gray",
+	"price": 16106,
+	"hasSunroof": false,
+	"isFourWheelDrive": true,
+	"hasLowMiles": true,
+	"hasPowerWindows": false,
+	"hasNavigation": true,
+	"hasHeatedSeats": false
+	},
+	{
+	"_id": "59d2698c05889e0b23959106",
+	"make": "Toyota",
+	"year": 2012,
+	"color": "Silver",
+	"price": 18696,
+	"hasSunroof": true,
+	"isFourWheelDrive": true,
+	"hasLowMiles": false,
+	"hasPowerWindows": true,
+	"hasNavigation": false,
+	"hasHeatedSeats": true
+	},
+	{
+	"_id": "59d2698c6f1dc2cbec89c413",
+	"make": "Mercedes",
+	"year": 2016,
+	"color": "Black",
+	"price": 18390,
+	"hasSunroof": true,
+	"isFourWheelDrive": false,
+	"hasLowMiles": false,
+	"hasPowerWindows": true,
+	"hasNavigation": true,
+	"hasHeatedSeats": false
+	},
+	{
+	"_id": "59d2698c340f2728382c0a73",
+	"make": "Toyota",
+	"year": 2015,
+	"color": "White",
+	"price": 15895,
+	"hasSunroof": true,
+	"isFourWheelDrive": false,
+	"hasLowMiles": true,
+	"hasPowerWindows": true,
+	"hasNavigation": false,
+	"hasHeatedSeats": true
+	},
+	{
+	"_id": "59d2698cba9b82c2347cd13a",
+	"make": "Ford",
+	"year": 2014,
+	"color": "Gray",
+	"price": 19710,
+	"hasSunroof": false,
+	"isFourWheelDrive": true,
+	"hasLowMiles": false,
+	"hasPowerWindows": false,
+	"hasNavigation": true,
+	"hasHeatedSeats": true
+	},
+	{
+	"_id": "59d2698ce2e7eeeb4f109001",
+	"make": "Toyota",
+	"year": 2014,
+	"color": "Red",
+	"price": 19248,
+	"hasSunroof": true,
+	"isFourWheelDrive": false,
+	"hasLowMiles": true,
+	"hasPowerWindows": true,
+	"hasNavigation": true,
+	"hasHeatedSeats": true
+	},
+	{
+	"_id": "59d2698cd6a3b8f0dd994c9d",
+	"make": "Toyota",
+	"year": 2015,
+	"color": "Black",
+	"price": 13170,
+	"hasSunroof": true,
+	"isFourWheelDrive": false,
+	"hasLowMiles": true,
+	"hasPowerWindows": true,
+	"hasNavigation": false,
+	"hasHeatedSeats": false
+	},
+	{
+	"_id": "59d2698c86ab54cee8acdc7b",
+	"make": "Mercedes",
+	"year": 2013,
+	"color": "Gray",
+	"price": 15669,
+	"hasSunroof": false,
+	"isFourWheelDrive": false,
+	"hasLowMiles": true,
+	"hasPowerWindows": false,
+	"hasNavigation": false,
+	"hasHeatedSeats": false
+	},
+	{
+	"_id": "59d2698cda9e8d39476c678a",
+	"make": "Toyota",
+	"year": 2015,
+	"color": "White",
+	"price": 16629,
+	"hasSunroof": false,
+	"isFourWheelDrive": false,
+	"hasLowMiles": true,
+	"hasPowerWindows": false,
+	"hasNavigation": false,
+	"hasHeatedSeats": true
+	}
 ]
 </code>
-</pre>
+				</pre>
+			</div>
+		</div>
 	</div>
-	<div ng-show="domain === 'Ecommerce'">
-		<h2>E-Commerce Shipping</h2>
-		<p>An e-commerce store wants to add a feature which describes the date a product would ship if purchased.</p>
-		<p>Each product in their inventory has an integer N of max days to ship.  Also provided is an indication of whether the item ships on week days or not.  Given this data, generate the ship date for a product given a date ordered.  If an item has shipOnWeekends as true then weekends should count. If shipOnWeekends is false then the logic should ignore weekends and extend the ship date.</p>
-		<p>
-			When calculating the date, the first day to count should be the current date.  The date to display should be the last day in the count.
-			E.g.,
-			If a product is ordered Monday Oct 2nd and has a max ship days of 2, then the resulting date should be Tues, Oct 3rd. (First day in the count is Monday, second day in the count is Tues).
-		</p>
-		<p>
-			E.g. 2,
-			If a product is ordered in Jan 1st 2017 with a max ship days of 12 and only ships on weekdays, the return date should be 12 weekdays after Jan 1st, 2017 (Include Jan 1st in the count).
-		</p>
-		<p>
-			E.g. 3,
-			Given a product data of
-		</p>
-<pre><code>{
-  "productId": "59d26d747ed72434a3da6e1d",
-  "shipOnWeekends": true,
-  "maxBusinessDaysToShip": 7
+
+	<div class="col-md-12 mt-4" ng-show="domain === 'Ecommerce'">
+		<div class="card">
+			<h2 class="card-header">
+				E-Commerce Shipping
+			</h2>
+			<div class="card-body">
+				<p class="card-text">An e-commerce store wants to add a feature which describes the date a product would ship if purchased.</p>
+				<p class="card-text">Each product in their inventory has an integer N of max days to ship. Also provided is an indication of whether the item
+					ships on week days or not. Given this data, generate the ship date for a product given a date ordered. If an item has
+					shipOnWeekends as true then weekends should count. If shipOnWeekends is false then the logic should ignore weekends
+					and extend the ship date.</p>
+				<p class="card-text">
+					When calculating the date, the first day to count should be the current date. The date to display should be the last day
+					in the count. E.g., If a product is ordered Monday Oct 2nd and has a max ship days of 2, then the resulting date should
+					be Tues, Oct 3rd. (First day in the count is Monday, second day in the count is Tues).
+				</p>
+				<p class="card-text">
+					E.g. 2, If a product is ordered in Jan 1st 2017 with a max ship days of 12 and only ships on weekdays, the return date should
+					be 12 weekdays after Jan 1st, 2017 (Include Jan 1st in the count).
+				</p>
+				<p class="card-text">
+					E.g. 3, Given a product data of
+				</p>
+				<pre>
+<code>
+{
+	"productId": "59d26d747ed72434a3da6e1d",
+	"shipOnWeekends": true,
+	"maxBusinessDaysToShip": 7
 }
-</code></pre>
-		<p>A user who is viewing the product on Monday Oct 2nd should see a date of Sun Oct 8th.</p>
-		<p>
-			UI
-			Display a list of products (Name, available inventory quantity) and their ship dates if ordered right now.
-		</p>
-		<p>Optional Challenges:</p>
-		<ul>
-			<li>Add holidays</li>
-			<li>Give each product a Mfr. These Mfr’s denote variable holidays.</li>
-			<li>Add a date/time input box in the UI where a user can input an order date. Ship dates should update.</li>
-		</ul>
-		<p>Sample data set:</p>
-		<pre><code>[
-  {
-    "productId": 1,
-    "productName": "fugiat exercitation adipisicing",
-    "inventoryQuantity": 43,
-    "shipOnWeekends": true,
-    "maxBusinessDaysToShip": 13
-  },
-  {
-    "productId": 2,
-    "productName": "mollit cupidatat Lorem",
-    "inventoryQuantity": 70,
-    "shipOnWeekends": true,
-    "maxBusinessDaysToShip": 18
-  },
-  {
-    "productId": 3,
-    "productName": "non quis sint",
-    "inventoryQuantity": 33,
-    "shipOnWeekends": false,
-    "maxBusinessDaysToShip": 15
-  },
-  {
-    "productId": 4,
-    "productName": "voluptate cupidatat non",
-    "inventoryQuantity": 52,
-    "shipOnWeekends": false,
-    "maxBusinessDaysToShip": 18
-  },
-  {
-    "productId": 5,
-    "productName": "anim amet occaecat",
-    "inventoryQuantity": 39,
-    "shipOnWeekends": true,
-    "maxBusinessDaysToShip": 19
-  },
-  {
-    "productId": 6,
-    "productName": "cillum deserunt elit",
-    "inventoryQuantity": 47,
-    "shipOnWeekends": false,
-    "maxBusinessDaysToShip": 20
-  },
-  {
-    "productId": 7,
-    "productName": "adipisicing reprehenderit et",
-    "inventoryQuantity": 71,
-    "shipOnWeekends": false,
-    "maxBusinessDaysToShip": 15
-  },
-  {
-    "productId": 8,
-    "productName": "ex mollit laboris",
-    "inventoryQuantity": 80,
-    "shipOnWeekends": false,
-    "maxBusinessDaysToShip": 15
-  }
+</code>
+				</pre>
+				<p class="card-text">A user who is viewing the product on Monday Oct 2nd should see a date of Sun Oct 8th.</p>
+				<p class="card-text">
+					UI Display a list of products (Name, available inventory quantity) and their ship dates if ordered right now.
+				</p>
+				<p class="card-text">Optional Challenges:</p>
+				<ul>
+					<li>Add holidays</li>
+					<li>Give each product a Mfr. These Mfr’s denote variable holidays.</li>
+					<li>Add a date/time input box in the UI where a user can input an order date. Ship dates should update.</li>
+				</ul>
+				<p class="card-text">Sample data set:</p>
+				<pre>
+<code>
+[
+	{
+		"productId": 1,
+		"productName": "fugiat exercitation adipisicing",
+		"inventoryQuantity": 43,
+		"shipOnWeekends": true,
+		"maxBusinessDaysToShip": 13
+	},
+	{
+		"productId": 2,
+		"productName": "mollit cupidatat Lorem",
+		"inventoryQuantity": 70,
+		"shipOnWeekends": true,
+		"maxBusinessDaysToShip": 18
+	},
+	{
+		"productId": 3,
+		"productName": "non quis sint",
+		"inventoryQuantity": 33,
+		"shipOnWeekends": false,
+		"maxBusinessDaysToShip": 15
+	},
+	{
+		"productId": 4,
+		"productName": "voluptate cupidatat non",
+		"inventoryQuantity": 52,
+		"shipOnWeekends": false,
+		"maxBusinessDaysToShip": 18
+	},
+	{
+		"productId": 5,
+		"productName": "anim amet occaecat",
+		"inventoryQuantity": 39,
+		"shipOnWeekends": true,
+		"maxBusinessDaysToShip": 19
+	},
+	{
+		"productId": 6,
+		"productName": "cillum deserunt elit",
+		"inventoryQuantity": 47,
+		"shipOnWeekends": false,
+		"maxBusinessDaysToShip": 20
+	},
+	{
+		"productId": 7,
+		"productName": "adipisicing reprehenderit et",
+		"inventoryQuantity": 71,
+		"shipOnWeekends": false,
+		"maxBusinessDaysToShip": 15
+	},
+	{
+		"productId": 8,
+		"productName": "ex mollit laboris",
+		"inventoryQuantity": 80,
+		"shipOnWeekends": false,
+		"maxBusinessDaysToShip": 15
+	}
 ]
 </code>
-</pre>
+				</pre>
+			</div>
+		</div>
 	</div>
-	<div ng-show="domain === 'Navigation'">
-		<h2>Maps Navigation</h2>
-		<p>You're airdropped near Headquarters in a city somewhere. "Near", unfortunately, is as close as you can get - the instructions on you map start here. The Document indicates that you should start at the given coordinates (where you just landed) and face North. Then, follow the provided sequence: either turn left (L) or right (R) 90 degrees, then walk forward the given number of blocks, ending at a new intersection. There's no time to follow such ridiculous instructions on foot, though, so you take a moment and work out the destination. Given that you can only walk on the street grid of the city, how far is the shortest path to the destination? For example: Following R2, L3 leaves you 2 blocks East and 3 blocks North, or 5 blocks away. R2, R2, R2 leaves you 2 blocks due South of your starting position, which is 2 blocks away. R5, L5, R5, R3 leaves you 12 blocks away. How many blocks away is HQ?</p>
-		<p>
-			Sample input:
-			"L3, R2, L5, R1, L1, L2"
-		</p>
-		<p>
-			Output:
-			10 blocks away
-		</p>
-		<p>
-			Sample input #2:
-			"L3, R2, L5, R1, L1, L2, L2, R1, R5, R1, L1, L2, R2, R4, L4, L3, L3, R5, L1, R3, L5, L2, R4, L5, R4, R2, L2, L1, R1, L3, L3, R2, R1, L4, L1, L1, R4, R5, R1, L2, L1, R188, R4, L3, R54, L4, R4, R74, R2, L4, R185, R1, R3, R5, L2, L3, R1, L1, L3, R3, R2, L3, L4, R1, L3, L5, L2, R2, L1, R2, R1, L4, R5, R4, L5, L5, L4, R5, R4, L5, L3, R4, R1, L5, L4, L3, R5, L5, L2, L4, R4, R4, R2, L1, L3, L2, R5, R4, L5, R1, R2, R5, L2, R4, R5, L2, L3, R3, L4, R3, L2, R1, R4, L5, R1, L5, L3, R4, L2, L2, L5, L5, R5, R2, L5, R1, L3, L2, L2, R3, L3, L4, R2, R3, L1, R2, L5, L3, R4, L4, R4, R3, L3, R1, L3, R5, L5, R1, R5, R3, L1"
-			Output: 209
-		</p>
+
+	<div class="col-md-12 mt-4" ng-show="domain === 'Navigation'">
+		<div class="card">
+			<h2 class="card-header">
+				Maps Navigation
+			</h2>
+			<div class="card-body">
+				<p class="card-text">You're airdropped near Headquarters in a city somewhere. "Near", unfortunately, is as close as you can get - the instructions
+					on you map start here. The Document indicates that you should start at the given coordinates (where you just landed)
+					and face North. Then, follow the provided sequence: either turn left (L) or right (R) 90 degrees, then walk forward
+					the given number of blocks, ending at a new intersection. There's no time to follow such ridiculous instructions on
+					foot, though, so you take a moment and work out the destination. Given that you can only walk on the street grid of
+					the city, how far is the shortest path to the destination? For example: Following R2, L3 leaves you 2 blocks East and
+					3 blocks North, or 5 blocks away. R2, R2, R2 leaves you 2 blocks due South of your starting position, which is 2 blocks
+					away. R5, L5, R5, R3 leaves you 12 blocks away. How many blocks away is HQ?</p>
+				<p class="card-text">
+					Sample input: "L3, R2, L5, R1, L1, L2"
+				</p>
+				<p class="card-text">
+					Output: 10 blocks away
+				</p>
+				<p class="card-text">
+					Sample input #2: "L3, R2, L5, R1, L1, L2, L2, R1, R5, R1, L1, L2, R2, R4, L4, L3, L3, R5, L1, R3, L5, L2, R4, L5, R4, R2,
+					L2, L1, R1, L3, L3, R2, R1, L4, L1, L1, R4, R5, R1, L2, L1, R188, R4, L3, R54, L4, R4, R74, R2, L4, R185, R1, R3, R5,
+					L2, L3, R1, L1, L3, R3, R2, L3, L4, R1, L3, L5, L2, R2, L1, R2, R1, L4, R5, R4, L5, L5, L4, R5, R4, L5, L3, R4, R1,
+					L5, L4, L3, R5, L5, L2, L4, R4, R4, R2, L1, L3, L2, R5, R4, L5, R1, R2, R5, L2, R4, R5, L2, L3, R3, L4, R3, L2, R1,
+					R4, L5, R1, L5, L3, R4, L2, L2, L5, L5, R5, R2, L5, R1, L3, L2, L2, R3, L3, L4, R2, R3, L1, R2, L5, L3, R4, L4, R4,
+					R3, L3, R1, L3, R5, L5, R1, R5, R3, L1" Output: 209
+				</p>
+			</div>
+		</div>
 	</div>
 
 
 	<!--
 	  Interfaces
 	  -->
-	<div ng-show="interface === 'WebAPI'">
-		<h2>Web API</h2>
-		<p>
-			We would like this to be a Web API endpoint, something that a Web
-			or mobile client could use over HTTP to obtain data from the server.
-			It should accept JSON (or XML, but we prefer JSON) as input, and
-			likewise return JSON as output. The actual fomat of the JSON (or
-			XML) is entirely up to you, but we would like you to use current
-			conventions and RESTful principles as your guide in the design.
-		</p>
 
-		<p>
-			The WebAPI should verify that the data in the incoming request
-			is acceptable input, but you may assume (for practical purposes)
-			that the incoming JSON (or XML) is always well-formed.
-		</p>
-
-		<p>
-			Any errors should be communicated using traditional Web API
-			(RESTful) error-reporting mechanisms.
-		</p>
-	</div>
-	<div ng-show="interface === 'NativeUI'">
-		<h2>Native GUI</h2>
-		<p>
-			We would like this to be a "native GUI" application; that is,
-			we want to interact using the native user interface components of
-			the platform. (This means specifically that we want to avoid the
-			use of Web-like tools that create a user interface hidden within
-			a Web browser on the system; we want you to write this using the
-			native SDK of the target platform.)
-		</p>
-
-		<p>
-			The UI does not need to be incredibly complicated--but if a simple
-			text area asking for a string of input is used, it is up to you to
-			verify that the input is correct and provide an example go along
-			with it.
-		</p>
-	</div>
-	<div ng-show="interface === 'WebClientUI'">
-		<h2>Web (client) UI</h2>
-		<p>
-			We would like you to build this as a "single-page application"
-			(or some other kind of entirely-browser-based solution). The user
-			interface should be written in tools that ultimately produce an
-			interface that can be loaded into a Web browser.
-		</p>
-
-		<p>
-			Typically this will involve using JavaScript and libraries
-			such as Angular, Durandal, or Ember, but if you have alternates
-			that you would like to suggest and use, please let us know before
-			doing so--clients are sometimes very particular about the tools
-			used in their applications.
-		</p>
-
-		<p>
-			It will be safe to assume that any "storage" required by the
-			application can/should/will be done using Web APIs; you may
-			mock the storage for those as you need, but the application must
-			behave exactly the same if/when a back end is wired up to it.
-			If you prefer to use a real back-end, you may, but we urge you
-			not to spend a great deal of time on that--we are interested
-			(and will be evaluating you) solely on your front-end skills.
-		</p>
-
-		<p>
-			User interface is not a high
-			priority for us, so it need not look incredibly pretty (though
-			the use of a library like Bootstrap to help make it look at
-			least a little pretty is a bonus!), but it must be entirely
-			functional, and should be doing some basic validation of inputs.
-			In addition, the output should be on a separate page from the
-			inputs, in keeping with traditional Web style.
-		</p>
-	</div>
-	<div ng-show="interface === 'WebServerUI'">
-		<h2>Web (Server) UI</h2>
-		<p>
-			We would like you to build a traditional "browser-based app",
-			meaning a series of HTML-based web pages generated on the Web
-			server and transmitted back to the browser using HTTP when the
-			user clicks on controls or forms.
-		</p>
-
-		<p>
-			User interface is not a high
-			priority for us, so it need not look incredibly pretty (though
-			the use of a library like Bootstrap to help make it look at
-			least a little pretty is a bonus!), but it must be entirely
-			functional, and should be doing some basic validation of inputs.
-			In addition, the output should be on a separate page from the
-			inputs, in keeping with traditional Web style.
-		</p>
+	<div class="col-md-12 mt-4" ng-show="interface === 'WebAPI'">
+		<div class="card">
+			<h2 class="card-header">
+				Web API
+			</h2>
+			<div class="card-body">
+				<p class="card-text">
+					We would like this to be a Web API endpoint, something that a Web or mobile client could use over HTTP to obtain data from
+					the server. It should accept JSON (or XML, but we prefer JSON) as input, and likewise return JSON as output. The actual
+					fomat of the JSON (or XML) is entirely up to you, but we would like you to use current conventions and RESTful principles
+					as your guide in the design.
+				</p>
+		
+				<p class="card-text">
+					The WebAPI should verify that the data in the incoming request is acceptable input, but you may assume (for practical purposes)
+					that the incoming JSON (or XML) is always well-formed.
+				</p>
+		
+				<p class="card-text">
+					Any errors should be communicated using traditional Web API (RESTful) error-reporting mechanisms.
+				</p>
+			</div>
+		</div>
 	</div>
 
-
-	<div ng-show="interface === 'WebService'">
-		<h2>WS-* Web Service</h2>
-		<p>
-			We would like this to be a SOAP-based WSDL endpoint, using
-			XSD to describe the incoming and outgoing data types, in full
-			compliance with SOAP 1.2, WSDL 1.1 and XSD 1.0 Specifications.
-			Your WSDL should be usable from at least two platforms--the target
-			one we are asking you to build the implementation in, and one
-			other (using any toolkits of your choice on that other platform,
-			of course).
-		</p>
+	<div class="col-md-12 mt-4" ng-show="interface === 'NativeUI'">
+		<div class="card">
+			<h2 class="card-header">
+				Native GuI
+			</h2>
+			<div class="card-body">
+				<p class="card-text">
+					We would like this to be a "native GUI" application; that is, we want to interact using the native user interface components
+					of the platform. (This means specifically that we want to avoid the use of Web-like tools that create a user interface
+					hidden within a Web browser on the system; we want you to write this using the native SDK of the target platform.)
+				</p>
+		
+				<p class="card-text">
+					The UI does not need to be incredibly complicated--but if a simple text area asking for a string of input is used, it is
+					up to you to verify that the input is correct and provide an example go along with it.
+				</p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-12 mt-4" ng-show="interface === 'WebClientUI'">
+		<div class="card">
+			<h2 class="card-header">
+				Web UI (SPA)
+			</h2>
+			<div class="card-body">
+				<p class="card-text">
+					We would like you to build this as a "single-page application" (or some other kind of entirely-browser-based solution). The
+					user interface should be written in tools that ultimately produce an interface that can be loaded into a Web browser.
+				</p>
+		
+				<p class="card-text">
+					Typically this will involve using JavaScript and libraries such as Angular, Durandal, or Ember, but if you have alternates
+					that you would like to suggest and use, please let us know before doing so--clients are sometimes very particular about
+					the tools used in their applications.
+				</p>
+		
+				<p class="card-text">
+					It will be safe to assume that any "storage" required by the application can/should/will be done using Web APIs; you may
+					mock the storage for those as you need, but the application must behave exactly the same if/when a back end is wired up
+					to it. If you prefer to use a real back-end, you may, but we urge you not to spend a great deal of time on that--we are
+					interested (and will be evaluating you) solely on your front-end skills.
+				</p>
+		
+				<p class="card-text">
+					User interface is not a high priority for us, so it need not look incredibly pretty (though the use of a library like Bootstrap
+					to help make it look at least a little pretty is a bonus!), but it must be entirely functional, and should be doing some
+					basic validation of inputs. In addition, the output should be on a separate page from the inputs, in keeping with traditional
+					Web style.
+				</p>
+			</div>
+		</div>
 	</div>
 
+	<div class="col-md-12 mt-4" ng-show="interface === 'WebServerUI'">
+		<div class="card">
+			<h2 class="card-header">
+				Web UI (Server-generated)
+			</h2>
+			<div class="card-body">
+				<p class="card-text">
+					We would like you to build a traditional "browser-based app", meaning a series of HTML-based web pages generated on the Web
+					server and transmitted back to the browser using HTTP when the user clicks on controls or forms.
+				</p>
+		
+				<p class="card-text">
+					User interface is not a high priority for us, so it need not look incredibly pretty (though the use of a library like Bootstrap
+					to help make it look at least a little pretty is a bonus!), but it must be entirely functional, and should be doing some
+					basic validation of inputs. In addition, the output should be on a separate page from the inputs, in keeping with traditional
+					Web style.
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-12 mt-4" ng-show="interface === 'WebService'">
+		<div class="card">
+			<h2 class="card-header">
+				WS-* Web Service
+			</h2>
+			<div class="card-body">
+				<p class="card-text">
+					We would like this to be a SOAP-based WSDL endpoint, using XSD to describe the incoming and outgoing data types, in full
+					compliance with SOAP 1.2, WSDL 1.1 and XSD 1.0 Specifications. Your WSDL should be usable from at least two platforms--the
+					target one we are asking you to build the implementation in, and one other (using any toolkits of your choice on that
+					other platform, of course).
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<!--
+		UI
+	-->
+	<div ng-show="interface !== 'NativeUI'">
+		<div class="col-md-12 mt-4" ng-show="ui === 'React'">
+			<div class="card">
+				<h2 class="card-header">
+						React
+				</h2>
+				<div class="card-body">
+					<p class="card-text">
+						We would like for you to create a frontend of your application using ReactJS. It is acceptable to use
+						<a href="https://github.com/facebook/create-react-app" target="_blank">
+							Create-React-App
+						</a> to set this project up. We also recommend using some type of CSS framework such as
+						<a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>. We are looking for a frontend solution that consumes your API service and displays the information in
+						a friendly manner. We aren't looking for something complex, just demonstrate the use of a frontend framework with your
+						backend service that isn't terrible on the eyes.
+					</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-12 mt-4" ng-show="ui === 'Angular'">
+			<div class="card">
+				<h2 class="card-header">
+						Angular
+				</h2>
+				<div class="card-body">
+					<p class="card-text">
+						We would like for you to create a frontend of your application using Angular. It is acceptable to use the
+						<a href="https://cli.angular.io/" target="_blank">
+							Angular CLI tool
+						</a> to set this project up. We also recommend using some type of CSS framework such as
+						<a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>. We are looking for a frontend solution that consumes your API service and displays the information in
+						a friendly manner. We aren't looking for something complex, just demonstrate the use of a frontend framework with your
+						backend service that isn't terrible on the eyes.
+					</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-12 mt-4" ng-show="ui === 'Vue'">
+			<div class="card">
+				<h2 class="card-header">
+						VueJS
+				</h2>
+				<div class="card-body">
+					<p class="card-text">
+						We would like for you to create a frontend of your application using VueJS. It is acceptable to use the
+						<a href="https://github.com/vuejs/vue-cli" target="_blank">
+							VueJs CLI tool
+						</a> to set this project up. We also recommend using some type of CSS framework such as
+						<a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>. We are looking for a frontend solution that consumes your API service and displays the information in
+						a friendly manner. We aren't looking for something complex, just demonstrate the use of a frontend framework with your
+						backend service that isn't terrible on the eyes.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<!--
 	  Languages
 	  -->
-	<div ng-show="language === 'Java'">
-		<h2>Java</h2>
-		<p>
-			We would like you to do this project using the Java language;
-			preferably Java7 or Java8. If you would prefer to use a different
-			language (such as Groovy, Scala, Clojure, or Kotlin), please check
-			with us first. We are not opposed to those languages ourselves,
-			but sometimes our clients require the use of Java.
-		</p>
+	<div class="col-md-12 mt-4" ng-show="language === 'Java'">
+		<div class="card">
+			<h2 class="card-header">
+				Java
+			</h2>
+			<div class="card-body">
+				<p class="card-text">
+					We would like you to do this project using the Java language; preferably Java7 or Java8. If you would prefer to use a different
+					language (such as Groovy, Scala, Clojure, or Kotlin), please check with us first. We are not opposed to those languages
+					ourselves, but sometimes our clients require the use of Java.
+				</p>
+			</div>
+		</div>
 	</div>
 
-
-	<div ng-show="language === 'C#'">
-		<h2>C#</h2>
-		<p>
-			We would like you to do this project using the C# language,
-			preferably using a recent version of Visual Studio. If you would
-			prefer to use a different language (such as VB or F#), please check
-			with us first. We are not opposed to those languages ourselves, but
-			sometimes our clients require the use of C#.
-		</p>
+	
+	<div class="col-md-12 mt-4" ng-show="language === 'C#'">
+		<div class="card">
+			<h2 class="card-header">
+				C#
+			</h2>
+			<div class="card-body">
+				<p class="card-text">
+					We would like you to do this project using the C# language, preferably using a recent version of Visual Studio. If you would
+					prefer to use a different language (such as VB or F#), please check with us first. We are not opposed to those languages
+					ourselves, but sometimes our clients require the use of C#.
+				</p>
+			</div>
+		</div>
 	</div>
 
-
-	<div ng-show="language === 'JavaScript'">
-		<h2>JavaScript</h2>
+	
+	<div class="col-md-12 mt-4" ng-show="language === 'JavaScript'">
+		<div class="card">
+			<h2 class="card-header">
+				JavaScript
+			</h2>
+			<div class="card-body">
+				<p class="card-text">
+					We would like you to do this project using the JavaScript language, preferably using a recent version of NodeJS.
+				</p>
+			</div>
+		</div>
 	</div>
 
-
-	<div ng-show="language === 'Scala'">
-		<h2>Scala</h2>
-		<p>
-			We would like you to do this project using Scala, preferably
-			at least Scala 2.10 or later. Use of any Scala-related libraries
-			(Play, Akka, Spray, etc) is perfectly acceptable, so long as they
-			are either included in the code sample or pulled in as part of a
-			build process (sbt, presumably).
-		</p>
+	<div class="col-md-12 mt-4" ng-show="language === 'Scala'">
+		<div class="card">
+			<h2 class="card-header">
+				Scala
+			</h2>
+			<div class="card-body">
+				<p class="card-text">
+					We would like you to do this project using Scala, preferably at least Scala 2.10 or later. Use of any Scala-related libraries
+					(Play, Akka, Spray, etc) is perfectly acceptable, so long as they are either included in the code sample or pulled in
+					as part of a build process (sbt, presumably).
+				</p>
+			</div>
+		</div>
 	</div>
 
 
 	<!--
 	  Platforms
 	  -->
-	<div ng-show="platform === 'iOS'">
-		<h2>iOS</h2>
-		<p>
-			We would like you to build this as an iOS mobile app, targeting
-			the latest released/stable version of the iOS operating system. We
-			will not ask you to upload it to the AppStore (though certainly that
-			is a bonus), but we will need to be able to side-load the application
-			through XCode to our own devices to run it, so please make sure the
-			project is ready to do that. (Assume that we have XCode latest and
-			a working Apple Developer license to do so.)
-		</p>
+
+	<div class="col-md-12 mt-4" ng-show="platform === 'iOS'">
+		<div class="card">
+			<h2 class="card-header">
+					iOS
+			</h2>
+			<div class="card-body">
+				<p class="card-text">
+					We would like you to build this as an iOS mobile app, targeting the latest released/stable version of the iOS operating system.
+					We will not ask you to upload it to the AppStore (though certainly that is a bonus), but we will need to be able to side-load
+					the application through XCode to our own devices to run it, so please make sure the project is ready to do that. (Assume
+					that we have XCode latest and a working Apple Developer license to do so.)
+				</p>
+			</div>
+		</div>
 	</div>
 
-
-	<div ng-show="platform === 'Android'">
-		<h2>Android</h2>
-		<p>
-			We would like you to build this as an Android mobile app, targeting
-			an Android 4.0 (IceCreamSandwich) device. We will not ask you to
-			upload it to the Play Store (though certainly that is a bonus), but
-			we will need to be able to side-load it to our own devices to run it,
-			so please ensure the project is ready to do that. (Assume that we have
-			the latest Android Studio and the latest SDK versions already.)
-		</p>
+	<div class="col-md-12 mt-4" ng-show="platform === 'Android'">
+		<div class="card">
+			<h2 class="card-header">
+				Android
+			</h2>
+			<div class="card-body">
+				<p class="card-text">
+					We would like you to build this as an Android mobile app, targeting an Android 4.0 (IceCreamSandwich) device. We will not
+					ask you to upload it to the Play Store (though certainly that is a bonus), but we will need to be able to side-load it
+					to our own devices to run it, so please ensure the project is ready to do that. (Assume that we have the latest Android
+					Studio and the latest SDK versions already.)
+				</p>
+			</div>
+		</div>
 	</div>
-
-
-	<div ng-show="platform === 'NodeJS'">
-		<h2>NodeJS</h2>
-		<p></p>
-
-		<p>
-			You may use any npm packages that you find helpful, so long as
-			they are declared in the application's package.json file; you may
-			safely assume that we will run "npm install" on the source code before
-			running it. If there are any other particular instructions required
-			to run your app correctly, however, they must be documented or (ideally)
-			configured to run as part of a Gulp or Grunt file.
-		</p>
+	
+	<div class="col-md-12 mt-4" ng-show="platform === 'NodeJS'">
+		<div class="card">
+			<h2 class="card-header">
+				NodeJS
+			</h2>
+			<div class="card-body">
+				<p class="card-text">
+					You may use any npm packages that you find helpful, so long as they are declared in the application's package.json file;
+					you may safely assume that we will run "npm install" on the source code before running it. If there are any other particular
+					instructions required to run your app correctly, however, they must be documented or (ideally) configured to run as part
+					of a Gulp or Grunt file.
+				</p>
+			</div>
+		</div>
 	</div>
-
-	<div ng-show="platform === 'ReactJS'">
-		<h2>ReactJS</h2>
-		<p></p>
-
-		<p>
-			You may use any npm packages that you find helpful, so long as
-			they are declared in the application's package.json file; you may
-			safely assume that we will run "npm install" on the source code before
-			running it. If there are any other particular instructions required
-			to run your app correctly, however, they must be documented or (ideally)
-			configured to run as part of a Gulp or Grunt file.
-		</p>
+	
+	<div class="col-md-12 mt-4" ng-show="platform === 'JVM'">
+		<div class="card">
+			<h2 class="card-header">
+				JVM
+			</h2>
+			<div class="card-body">
+				<p class="card-text">
+					You may use any Java libraries (Spring, Hibernate, etc) that you find helpful, so long as they are either included in the
+					code sample or pulled in as part of a build process (such as that done with Maven or Gradle).
+				</p>
+			</div>
+		</div>
 	</div>
-
-
-
-	<div ng-show="platform === 'Java'">
-		<h2>JVM</h2>
-		<p></p>
-
-		<p>
-			You may use any Java libraries (Spring, Hibernate, etc) that you find helpful,
-			so long as they are either included in the code sample or pulled in
-			as part of a build process (such as that done with Maven or Gradle).
-		</p>
-	</div>
-
-
-	<div ng-show="platform === '.NET'">
-		<h2>.NET</h2>
-		<p></p>
-
-		<p>
-			You may use any .NET libraries (EntityFramework, third-party
-			control libraries such as those from Telerik or Infragistics) so
-			long as they are either included in the project or pulled in as part
-			of a build process (presumably with NuGet).
-		</p>
-	</div>
-
-
-	<div ng-show="platform === 'Ruby'">
-		<h2>Ruby</h2>
-	</div>
-
-
-	<!--
-	  Quirks (combinations that require special care)
-	  -->
-	<div ng-show="language === 'Ruby' && platform === 'Android'">
-		<p>
-			We strongly suspect that your program will use Ruboto; if for some
-			reason you have found a different way to do Ruby on the Android
-			platform, please check with us first, both because we want to verify
-			it will be acceptable and because we want to know about it!
-		</p>
+	
+	<div class="col-md-12 mt-4" ng-show="platform === '.NET'">
+		<div class="card">
+			<h2 class="card-header">
+				.NET
+			</h2>
+			<div class="card-body">
+				<p class="card-text">
+						You may use any .NET libraries (EntityFramework, third-party control libraries such as those from Telerik or Infragistics)
+						so long as they are either included in the project or pulled in as part of a build process (presumably with NuGet).
+				</p>
+			</div>
+		</div>
 	</div>
 
 	<!--
 	  Summary
 	  -->
-	<h2>Final Notes</h2>
-	<p>
-		Your code should include all the necessary steps (either
-		automated as part of the build process, or in shell scripts that
-		we can run, or else documented very clearly on how to deploy
-		the app) such that we can run the code with a minimum of
-		work.
-	</p>
-
-	<p>Please include a README with your submission that indicates any special instructions for running your code (Such as a NuGet package restore) and also include what selections you made for your Domain and Interface.</p>
-
-	<p>
-		We look forward to hearing from you, evaluating your code, and
-		working with you further!
-	</p>
+	  
+	<div class="col-md-12 mt-4 mb-4">
+		<div class="card">
+			<h2 class="card-header">
+				Final Notes
+			</h2>
+			<div class="card-body">
+				<p class="card-text">
+					Your code should include all the necessary steps (either automated as part of the build process, or in shell scripts that
+					we can run, or else documented very clearly on how to deploy the app) such that we can run the code with a minimum of work.
+				</p>
+			
+				<p class="card-text">Please include a README with your submission that indicates any special instructions for running your code (Such as a NuGet
+					package restore) and also include what selections you made for your Domain and Interface.</p>
+			
+				<p class="card-text">
+					We look forward to hearing from you, evaluating your code, and working with you further!
+				</p>
+			</div>
+		</div>
+	</div>
 
 	<!-- </xmp> -->
 </body>
 
 <!-- script src="http://strapdownjs.com/v/0.2/strapdown.js"></script -->
+
 </html>
