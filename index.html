@@ -64,7 +64,6 @@
 							<div class="col-md-6">
 								<label for="domain">Domain:</label>
 								<select id="domain" class="form-control form-control-sm" ng-model="domain">
-									<option value="ToDoList">To-Do List</option>
 									<option value="PokerHands">Poker Hands</option>
 									<option value="TripCalc">Trip Calculator</option>
 									<option value="Dealership">Car Dealership</option>
@@ -124,36 +123,6 @@
 	<!--
 	Domains
 	-->
-	<div class="col-md-12 mt-4" ng-show="domain === 'ToDoList'">
-		<div class="card">
-			<h2 class="card-header">
-				TODO List
-			</h2>
-			<div class="card-body">
-				<p class="card-text">
-					The project goals are simple: We would like for you to create an application that provides the ubiquitous "TODO list" example
-					application that is all the rage right now. The basic functionality is given below:
-					<ul>
-						<li>As a user, I can add a TODO to the list.</li>
-						<li>As a user, I can add one or more sub-TODOs to a top-level TODO. The application should only allow for a depth of 2
-							(parent/child relationship, no grandchildren). i.e., A child TODO should not be allowed to have children of its own.</li>
-						<li>If a sub-TODO exist and are all closed, then the parent TODO should close.</li>
-						<li>If a parent TODO closes, then all sub-TODOs should close.</li>
-						<li>As a user, I can see all the TODOs on the list in an overview.</li>
-						<li>As a user, I can drill into a TODO to see more information about the TODO.</li>
-						<li>As a user, I can delete a TODO.</li>
-						<li>As a user, I can mark a TODO as completed.</li>
-						<li>As a user, when I see all the TODOs in the overview, if today's date is past the TODO's deadline, highlight it.</li>
-					</ul>
-					A TODO consists of a task (just a simple sentence or two is fine), a deadline date, a completed flag, and an optional "more
-					details" field that allows for more details to be given (again, a single large text area is fine for this).
-				</p class="card-text">
-
-				<p class="card-text">The list of TODOs can be kept in memory.</p>
-			</div>
-		</div>
-	</div>
-
 	<div class="col-md-12 mt-4" ng-show="domain === 'PokerHands'">
 		<div class="card">
 			<h2 class="card-header">
