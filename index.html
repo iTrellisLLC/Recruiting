@@ -87,6 +87,7 @@
 							<div class="col-md-6">
 								<label for="platform">Platform:</label>
 								<select id="platform" class="form-control form-control-sm" ng-model="platform" ng-change="language = null; ui = null;">
+									<option value="Python">Python</option>
 									<option value="JVM">JVM</option>
 									<option value=".NET">.NET</option>
 									<option value="NodeJS">NodeJS</option>
@@ -97,6 +98,7 @@
 							<div class="col-md-6">
 								<label for="language">Backend:</label>
 								<select id="language" class="form-control form-control-sm" ng-model="language">
+									<option ng-if="platform === 'Python'" value="Python">Python</option>
 									<option ng-if="platform === 'JVM' || platform === 'Android'" value="Java">Java</option>
 									<option ng-if="platform === 'NodeJS'" value="JavaScript">JavaScript</option>
 									<option ng-if="platform === '.NET'" value="C#">C#</option>
@@ -109,6 +111,7 @@
 							<div class="col-md-6">
 								<label for="ui">Frontend:</label>
 								<select id="ui" class="form-control form-control-sm" ng-model="ui">
+									<option ng-if="platform === 'Python'" value="Python">Python</option>
 									<option value="React">React</option>
 									<option value="Angular">Angular</option>
 									<option value="Vue">VueJS</option>
